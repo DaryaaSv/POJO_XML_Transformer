@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="hospital" type="hospitalType"/>
+  <xs:complexType name="hospitalRoomType">
+    <xs:sequence>
+      <xs:element name="id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="roomNumber">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="type"/>
+      <xs:element type="xs:string" name="capacity"/>
+      <xs:element name="floor">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="illnessType">
+    <xs:sequence>
+      <xs:element name="id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="diagnose">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="details">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="remarks">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="illnessesType">
+    <xs:sequence>
+      <xs:element type="illnessType" name="illness" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="patientType">
+    <xs:sequence>
+      <xs:element name="id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="firstName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="surname">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="age">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="phoneNumber">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="email">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="hospitalRoomType" name="hospitalRoom"/>
+      <xs:element type="illnessesType" name="illnesses"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="appointmentType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="date"/>
+      <xs:element name="id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="patientType" name="patient"/>
+      <xs:element name="result">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="xs:string" name="type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="appointmentsType">
+    <xs:sequence>
+      <xs:element type="appointmentType" name="appointment"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doctorType">
+    <xs:sequence>
+      <xs:element name="id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="firstName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="surname">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="phoneNumber">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="specialty">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="salary">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element type="appointmentsType" name="appointments"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doctorsType">
+    <xs:sequence>
+      <xs:element type="doctorType" name="doctor" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="equipmentType">
+    <xs:sequence>
+      <xs:element name="id">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="name">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="modelNumber">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="manufacturer">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="location">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="equipmentsType">
+    <xs:sequence>
+      <xs:element type="equipmentType" name="equipment" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hospitalType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="id"/>
+      <xs:element type="xs:string" name="hospitalName"/>
+      <xs:element type="xs:string" name="type"/>
+      <xs:element type="xs:string" name="address"/>
+      <xs:element type="xs:string" name="phoneNumber"/>
+      <xs:element type="doctorsType" name="doctors"/>
+      <xs:element type="equipmentsType" name="equipments"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

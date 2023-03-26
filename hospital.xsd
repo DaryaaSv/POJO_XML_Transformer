@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xsl="http://www.w3.org/2001/XMLSchema">
+  <xsl:element name="hospital" type="hospitalType"/>
+  <xsl:complexType name="hospitalRoomType">
+    <xsl:sequence>
+      <xsl:element type="xsl:string" name="capacity"/>
+      <xsl:element type="xsl:string" name="floor"/>
+      <xsl:element type="xsl:string" name="id"/>
+      <xsl:element type="xsl:string" name="roomNumber"/>
+      <xsl:element type="xsl:string" name="type"/>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="illnessType">
+    <xsl:sequence>
+      <xsl:element name="details">
+        <xsl:simpleType>
+          <xsl:restriction base="xsl:string">
+          </xsl:restriction>
+        </xsl:simpleType>
+      </xsl:element>
+      <xsl:element name="diagnose">
+        <xsl:simpleType>
+          <xsl:restriction base="xsl:string">
+          </xsl:restriction>
+        </xsl:simpleType>
+      </xsl:element>
+      <xsl:element name="id">
+        <xsl:simpleType>
+          <xsl:restriction base="xsl:string">
+          </xsl:restriction>
+        </xsl:simpleType>
+      </xsl:element>
+      <xsl:element name="name">
+        <xsl:simpleType>
+          <xsl:restriction base="xsl:string">
+          </xsl:restriction>
+        </xsl:simpleType>
+      </xsl:element>
+      <xsl:element name="remarks">
+        <xsl:simpleType>
+          <xsl:restriction base="xsl:string">
+          </xsl:restriction>
+        </xsl:simpleType>
+      </xsl:element>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="illnessesType">
+    <xsl:sequence>
+      <xsl:element type="illnessType" name="illness" maxOccurs="unbounded" minOccurs="0"/>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="patientType">
+    <xsl:sequence>
+      <xsl:element type="xsl:string" name="id"/>
+      <xsl:element type="xsl:string" name="firstName"/>
+      <xsl:element type="xsl:string" name="surname"/>
+      <xsl:element type="xsl:string" name="age"/>
+      <xsl:element type="xsl:string" name="phoneNumber"/>
+      <xsl:element type="xsl:string" name="email"/>
+      <xsl:element type="hospitalRoomType" name="hospitalRoom"/>
+      <xsl:element type="illnessesType" name="illnesses"/>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="appointmentType">
+    <xsl:sequence>
+      <xsl:element type="xsl:string" name="date"/>
+      <xsl:element type="xsl:string" name="id"/>
+      <xsl:element type="patientType" name="patient"/>
+      <xsl:element type="xsl:string" name="result"/>
+      <xsl:element type="xsl:string" name="type"/>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="appointmentsType">
+    <xsl:sequence>
+      <xsl:element type="appointmentType" name="appointment"/>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="doctorType">
+    <xsl:sequence>
+      <xsl:element name="id">
+        <xsl:simpleType>
+          <xsl:restriction base="xsl:string">
+          </xsl:restriction>
+        </xsl:simpleType>
+      </xsl:element>
+      <xsl:element type="xsl:string" name="firstName"/>
+      <xsl:element type="xsl:string" name="surname"/>
+      <xsl:element type="xsl:string" name="phoneNumber"/>
+      <xsl:element type="xsl:string" name="specialty"/>
+      <xsl:element type="xsl:string" name="salary"/>
+      <xsl:element type="appointmentsType" name="appointments"/>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="doctorsType">
+    <xsl:sequence>
+      <xsl:element type="doctorType" name="doctor" maxOccurs="unbounded" minOccurs="0"/>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="equipmentType">
+    <xsl:sequence>
+      <xsl:element type="xsl:string" name="id"/>
+      <xsl:element type="xsl:string" name="location"/>
+      <xsl:element type="xsl:string" name="manufacturer"/>
+      <xsl:element type="xsl:string" name="modelNumber"/>
+      <xsl:element type="xsl:string" name="name"/>
+      <xsl:element type="xsl:string" name="type"/>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="equipmentsType">
+    <xsl:sequence>
+      <xsl:element type="equipmentType" name="equipment"/>
+    </xsl:sequence>
+  </xsl:complexType>
+  <xsl:complexType name="hospitalType">
+    <xsl:sequence>
+      <xsl:element type="xsl:string" name="id"/>
+      <xsl:element type="xsl:string" name="hospitalName"/>
+      <xsl:element type="xsl:string" name="type"/>
+      <xsl:element type="xsl:string" name="address"/>
+      <xsl:element type="xsl:string" name="phoneNumber"/>
+      <xsl:element type="doctorsType" name="doctors"/>
+      <xsl:element type="equipmentsType" name="equipments"/>
+    </xsl:sequence>
+  </xsl:complexType>
+</xsl:schema>

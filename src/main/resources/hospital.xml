@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE hospital [
+		<!ELEMENT hospital (id|hospitalName|type|address|phoneNumber|doctors|equipments)*>
+		<!ELEMENT id (#PCDATA)>
+		<!ELEMENT hospitalName (#PCDATA)>
+		<!ELEMENT type (#PCDATA)>
+		<!ELEMENT address (#PCDATA)>
+		<!ELEMENT phoneNumber (#PCDATA)>
+		<!ELEMENT doctors (doctor)*>
+		<!ELEMENT doctor (id|firstName|surname|phoneNumber|specialty|salary|appointments)*>
+		<!ELEMENT firstName (#PCDATA)>
+		<!ELEMENT surname (#PCDATA)>
+		<!ELEMENT specialty (#PCDATA)>
+		<!ELEMENT salary (#PCDATA)>
+		<!ELEMENT appointments (appointment)*>
+		<!ELEMENT appointment (date|id|patient|result|type)*>
+		<!ELEMENT date (#PCDATA)>
+		<!ELEMENT patient (id|firstName|surname|age|phoneNumber|email|hospitalRoom|illnesses)*>
+		<!ELEMENT age (#PCDATA)>
+		<!ELEMENT email (#PCDATA)>
+		<!ELEMENT hospitalRoom (id|roomNumber|type|capacity|floor)*>
+		<!ELEMENT roomNumber (#PCDATA)>
+		<!ELEMENT capacity (#PCDATA)>
+		<!ELEMENT floor (#PCDATA)>
+		<!ELEMENT illnesses (illness)*>
+		<!ELEMENT illness (id|name|diagnose|details|remarks)*>
+		<!ELEMENT name (#PCDATA)>
+		<!ELEMENT diagnose (#PCDATA)>
+		<!ELEMENT details (#PCDATA)>
+		<!ELEMENT remarks (#PCDATA)>
+		<!ELEMENT result (#PCDATA)>
+		<!ELEMENT equipments (equipment)*>
+		<!ELEMENT equipment (id|name|modelNumber|manufacturer|type|location)*>
+		<!ELEMENT modelNumber (#PCDATA)>
+		<!ELEMENT manufacturer (#PCDATA)>
+		<!ELEMENT location (#PCDATA)>
+		]>
+<hospital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		  xsi:noNamespaceSchemaLocation="hospital.xsd">
+	<id>1</id>
+	<hospitalName>Central hospital</hospitalName>
+	<type>Clinic</type>
+	<address>Vilnius</address>
+	<phoneNumber>+3706390235276</phoneNumber>
+	<doctors>
+		<doctor>
+			<id>1</id>
+			<firstName>Bob</firstName>
+			<surname>Stevens</surname>
+			<phoneNumber>+37067645456</phoneNumber>
+			<specialty>Physiotherapist</specialty>
+			<salary>5000.0</salary>
+			<appointments>
+				<appointment>
+					<date>2023-03-22T00:00:00+02:00</date>
+					<id>1</id>
+					<patient>
+						<id>1</id>
+						<firstName>Alice</firstName>
+						<surname>Pattinson</surname>
+						<age>19</age>
+						<phoneNumber>+37063945276</phoneNumber>
+						<email>alicepattinson@gmail.com</email>
+						<hospitalRoom>
+							<id>1</id>
+							<roomNumber>242</roomNumber>
+							<type>Single room</type>
+							<capacity>1</capacity>
+							<floor>4</floor>
+						</hospitalRoom>
+						<illnesses>
+							<illness>
+								<id>1</id>
+								<name>Flu</name>
+								<diagnose>Chills</diagnose>
+								<details>High temperature</details>
+								<remarks>Not given</remarks>
+							</illness>
+							<illness>
+								<id>2</id>
+								<name>Cough</name>
+								<diagnose>Upper respiratory infection</diagnose>
+								<details>Cough present for 3 weeks</details>
+								<remarks>Not given</remarks>
+							</illness>
+						</illnesses>
+					</patient>
+					<result>The patient got a list of medicines</result>
+					<type>monitoring</type>
+				</appointment>
+			</appointments>
+		</doctor>
+		<doctor>
+			<id>2</id>
+			<firstName>Alex</firstName>
+			<surname>Vivien</surname>
+			<phoneNumber>+37065645456</phoneNumber>
+			<specialty>Cardiology</specialty>
+			<salary>4000.0</salary>
+			<appointments>
+				<appointment>
+					<date>2023-03-22T00:00:00+02:00</date>
+					<id>2</id>
+					<patient>
+						<id>2</id>
+						<firstName>Peter</firstName>
+						<surname>Parker</surname>
+						<age>28</age>
+						<phoneNumber>+37015947852</phoneNumber>
+						<email>peter.park@gmail.com</email>
+						<hospitalRoom>
+							<id>2</id>
+							<roomNumber>240</roomNumber>
+							<type>Single room</type>
+							<capacity>1</capacity>
+							<floor>3</floor>
+						</hospitalRoom>
+						<illnesses>
+							<illness>
+								<id>3</id>
+								<name>Common Cold</name>
+								<diagnose>Upper respiratory infection</diagnose>
+								<details>Fever, cough, sore throat</details>
+								<remarks>Treat with fluids and rest</remarks>
+							</illness>
+						</illnesses>
+					</patient>
+					<result>No problems found</result>
+					<type>monitoring</type>
+				</appointment>
+			</appointments>
+		</doctor>
+	</doctors>
+	<equipments>
+		<equipment>
+			<id>1</id>
+			<name>Patient monitor</name>
+			<modelNumber>5643</modelNumber>
+			<manufacturer>HospEq</manufacturer>
+			<type>For monitoring</type>
+			<location>Utility room</location>
+		</equipment>
+		<equipment>
+			<id>2</id>
+			<name>Elliptical</name>
+			<modelNumber>579</modelNumber>
+			<manufacturer>Precor</manufacturer>
+			<type>Cardio Equipment</type>
+			<location>Fitness Center</location>
+		</equipment>
+	</equipments>
+</hospital>
